@@ -1,0 +1,81 @@
+version: "3.7"
+
+services:
+  mongo:
+    container_name: ${CONTAINER_NAME_MONGO} 
+    image: mongo
+    mem_limit: "250M"
+    mem_reservation: "100M"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME} 
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD} 
+    volumes:
+      - ../.docker/mongodb:/data/db
+    ports:
+
+      - ${PORT_MONGO}:${PORT_MONGO}
+    networks:
+      box_universe:
+        ipv4_address: ${CONTAINER_MONGO_IP}
+  node-server:
+    container_name: ${CONTAINER_NAME_SERVER}
+    restart: always
+    mem_limit: "1300M"
+    mem_reservation: "200M"
+    build:
+      context: ../
+      dockerfile: ./server/docker/Dockerfile.dev # development
+    environment:
+      SECRET: ${SECRET}
+      PORT: ${PORT_SERVER}
+      SALT: ${SALT}
+      TIME_EXPIRE_ACCESS_TOKEN: ${TIME_EXPIRE_ACCESS_TOKEN}
+      TIME_EXPIRE_REFRESH_TOKEN: ${TIME_EXPIRE_REFRESH_TOKEN}
+      MONGO_URL: ${MONGO_URL}
+      AWS_S3_NAME_BUCKET: ${AWS_S3_NAME_BUCKET}
+      AWS_S3_ACCESS_KEY_ID: ${AWS_S3_ACCESS_KEY_ID}
+      AWS_S3_SECRET_ACCESS_KEY: ${AWS_S3_SECRET_ACCESS_KEY} 
+    ports:
+      - ${PORT_SERVER}:${PORT_SERVER}
+    volumes:
+      - ../server/src:/server/src/ # development
+    networks:
+      box_universe:
+        ipv4_address: ${CONTAINER_SERVER_IP}
+    depends_on:
+      - mongo
+  node-client:
+    container_name: ${CONTAINER_NAME_CLIENT}
+    mem_limit: "1300M"
+    mem_reservation: "200M"
+    restart: always
+    build:
+      context: ../
+      dockerfile: ./client/docker/Dockerfile.dev # development
+    ports:
+      - ${PORT_CLIENT}:${PORT_CLIENT}
+    volumes:
+      - ../client/src:/client/src/ # development
+    environment: 
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      SECRET: ${SECRET}
+      NEXTAUTH_SECRET: ${SECRET}
+      FACEBOOK_CLIENT_ID: ${FACEBOOK_CLIENT_ID} 
+      FACEBOOK_CLIENT_SECRET: ${FACEBOOK_CLIENT_SECRET} 
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID} 
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET} 
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID} 
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET} 
+    networks:
+      box_universe:
+        ipv4_address: ${CONTAINER_CLIENT_IP} 
+    depends_on:
+      - node-server 
+networks:
+  box_universe:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${CONTAINER_SUBNET} 
