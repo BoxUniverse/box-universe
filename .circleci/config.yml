@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run: git clone https://github.com/BoxUniverse/box-universe-client ./client
-      - run: git clone https://github.com/BoxUnivers/box-universe-server ./server
+      - run: git clone https://github.com/BoxUniverse/box-universe-server ./server
       - run: cd ./server && yarn install && yarn build
       - run: cd ./client && yarn install && yarn build
   docker:
