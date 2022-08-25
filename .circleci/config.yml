@@ -32,5 +32,3 @@ workflows:
   docker:
     jobs:
       - docker
-
-  
