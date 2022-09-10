@@ -1,6 +1,15 @@
 version: "3.7"
 
 services:
+  redis:
+    container_name: ${CONTAINER_NAME_REDIS}
+    image: redis:alpine
+    command: redis-server /usr/local/etc/redis/redis.conf
+    restart: always
+    ports:
+      - ${PORT_REDIS}:${PORT_REDIS}
+    volumes:
+      - ../redis/redis.conf:/usr/local/etc/redis/redis.conf
   mongo:
     container_name: ${CONTAINER_NAME_MONGO}
     image: mongo
