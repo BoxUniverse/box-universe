@@ -101,6 +101,7 @@ dist
 .tern-port
 
 *.pem
+*.key
 .docker
 .env
 client
