@@ -1,6 +1,26 @@
 version: "3.7"
 
 services:
+  elasticsearch:
+    container_name: ${CONTAINER_NAME_ELS}
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    ports:
+      - ${PORT_ELS}:${PORT_ELS}
+    networks:
+      box_universe:
+        ipv4_address: ${CONTAINER_ELS_IP}
+    volumes:
+      - ../.docker/els:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    environment:
+      - node.name=boxuniverse
+      - discovery.type=single-node
+      - cluster.name=boxuniverse
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
   redis:
     container_name: ${CONTAINER_NAME_REDIS}
     image: redis:alpine
