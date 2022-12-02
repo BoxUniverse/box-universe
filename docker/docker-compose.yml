@@ -1,40 +1,46 @@
 version: "3.7"
 
 services:
-  elasticsearch:
-    container_name: ${CONTAINER_NAME_ELS}
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
-    ports:
-      - ${PORT_ELS}:${PORT_ELS}
-    networks:
-      box_universe:
-        ipv4_address: ${CONTAINER_ELS_IP}
-    volumes:
-      - ../.docker/els:/usr/share/elasticsearch/data
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    environment:
-      - node.name=boxuniverse
-      - discovery.type=single-node
-      - cluster.name=boxuniverse
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-  kibana:
-    container_name: ${CONTAINER_NAME_KIBANA}
-    image: docker.elastic.co/kibana/kibana:7.5.2
-    ports:
-      - ${PORT_KIBANA}:${PORT_KIBANA}
-    networks:
-      box_universe:
-        ipv4_address: ${CONTAINER_KIBANA_IP}
+  # elasticsearch:
+  #   container_name: ${CONTAINER_NAME_ELS}
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+  #   env_file:
+  #     - ../.env
+  #   ports:
+  #     - ${PORT_ELS}:${PORT_ELS}
+  #   networks:
+  #     box_universe:
+  #       ipv4_address: ${CONTAINER_ELS_IP}
+  #   volumes:
+  #     - ../.docker/els:/usr/share/elasticsearch/data
+  #   ulimits:
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   environment:
+  #     - node.name=boxuniverse
+  #     - discovery.type=single-node
+  #     - cluster.name=boxuniverse
+  #     - bootstrap.memory_lock=true
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  # kibana:
+  #   container_name: ${CONTAINER_NAME_KIBANA}
+  #   image: docker.elastic.co/kibana/kibana:7.5.2
+  #   env_file:
+  #     - ../.env
+  #   ports:
+  #     - ${PORT_KIBANA}:${PORT_KIBANA}
+  #   networks:
+  #     box_universe:
+  #       ipv4_address: ${CONTAINER_KIBANA_IP}
 
   redis:
     container_name: ${CONTAINER_NAME_REDIS}
     image: redis:alpine
     command: redis-server /usr/local/etc/redis/redis.conf
     restart: always
+    env_file:
+      - ../.env
     networks:
       box_universe:
         ipv4_address: ${CONTAINER_REDIS_IP}
@@ -46,6 +52,8 @@ services:
     container_name: ${CONTAINER_NAME_NGINX}
     image: nginx:stable
     restart: always
+    env_file:
+      - ../.env
     environment:
       IP_SERVER: ${CONTAINER_SERVER_IP}
       PORT_SERVER: ${PORT_SERVER}
@@ -70,6 +78,8 @@ services:
     mem_limit: "1000M"
     mem_reservation: "50M"
     restart: always
+    env_file:
+      - ../.env
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
@@ -84,6 +94,8 @@ services:
     container_name: ${CONTAINER_NAME_SERVER}
     restart: always
     mem_limit: "3000M"
+    env_file:
+      - ../.env
     mem_reservation: "50M"
     build:
       context: ../
@@ -113,6 +125,8 @@ services:
     mem_limit: "3000M"
     mem_reservation: "50M"
     restart: always
+    env_file:
+      - ../.env
     build:
       context: ../
       dockerfile: ./client/docker/Dockerfile.dev # development
