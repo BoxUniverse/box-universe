@@ -1,3 +1,19 @@
 {
-  "dependencies": {}
+  "scripts": {
+    "stop:dev": "cd docker;sh deploy.sh stop development",
+    "stop:prod": "cd docker;sh deploy.sh stop production",
+    "stop:stag": "cd docker;sh deploy.sh stop staging",
+    "start:dev": "cd docker;sh deploy.sh development",
+    "start:prod": "cd docker;sh deploy.sh production",
+    "start:stag": "cd docker;sh deploy.sh staging",
+    "build:prod": "cd docker;sh deploy.sh build production",
+    "build:stag": "cd docker;sh deploy.sh build staging",
+    "logs:dev": "cd docker; docker-compose --env-file ../.env -f ./docker-compose.dev.yml logs -f",
+    "logs:stag": "cd docker; docker-compose --env-file ../.env -f ./docker-compose.stag.yml logs -f",
+    "logs:prod": "cd docker; docker-compose --env-file ../.env -f ./docker-compose.prod.yml logs -f"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/apollo-upload-client": "^17.0.2"
+  }
 }

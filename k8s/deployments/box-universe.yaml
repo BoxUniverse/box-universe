@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box-universe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box-universe
+  template:
+    metadata:
+      labels:
+        app: box-universe
+      annotations:
+        podIP: "$(status.podIP)"
+    spec:
+      hostname: redis
+      containers:
+  dependsOn:

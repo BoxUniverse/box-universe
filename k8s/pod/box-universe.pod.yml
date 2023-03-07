@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: box-universe-pod
+spec:
+  containers:
+  - name: box-universe-nginx
+    image: docker.io/kidp2h/box-universe-nginx:1.0.0
+    resources:
+      limits:
+        memory: 8192Mi
+        cpu: "3"
+      requests:
+        memory: 4096Mi
+        cpu: "3"
+    ports:
+    - containerPort: 80
+    imagePullPolicy: IfNotPresent
+    env:
+    - name: IP_SERVER
+      value: "$CONTAINER_SERVER_IP"
+    - name: PORT_SERVER
+      value: "$PORT_SERVER"
+    - name: IP_CLIENT
+      value: "$CONTAINER_CLIENT_IP"
+    - name: PORT_CLIENT
+      value: "$PORT_CLIENT"      
+    - name: PORT
+      value: "$PORT_NGINX"     
+    - name: NGINX_ENVSUBST_OUTPUT_DIR
+      value: "/etc/nginx/"
