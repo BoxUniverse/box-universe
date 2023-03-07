@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box-universe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box-universe
+  template:
+    metadata:
+      labels:
+        app: box-universe
+      annotations:
+        podIP: "$(status.podIP)"
+    spec:
+      hostname: redis
+      containers:
+        - name: box-universe-nginx
+          image: docker.io/kidp2h/box-universe-nginx:1.0.0
+          resources:
+            limits:
+              memory: 1024Mi
+              cpu: "2"
+            requests:
+              memory: 512Mi
+              cpu: "1"
+          ports:
+          - containerPort: 80
+          imagePullPolicy: Always
+          env:
+          - name: IP_SERVER
+            value: "$CONTAINER_SERVER_IP"
+          - name: PORT_SERVER
+            value: "$PORT_SERVER"
+          - name: IP_CLIENT
+            value: "$CONTAINER_CLIENT_IP"
+          - name: PORT_CLIENT
+            value: "$PORT_CLIENT"
+          - name: PORT
+            value: "$PORT_NGINX"
+          - name: NGINX_ENVSUBST_OUTPUT_DIR
+            value: "/etc/nginx/"

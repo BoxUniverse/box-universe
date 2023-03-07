@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: box-universe-server
+  template:
+    metadata:
+      labels:
+        app: box-universe-server
+    spec:
+      containers:
+        - name: box-universe-server
+          image: docker.io/kidp2h/box-universe-server:1.0.0
+          resources:
+            limits:
+              memory: 2048Mi
+              cpu: "2"
+            requests:
+              memory: 1024Mi
+              cpu: "1"
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+          env:
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: SECRET
+              value: "$SECRET"
+            - name: PORT_SERVER
+              value: "$PORT_SERVER"
+            - name: SALT
+              value: "$SALT"
+            - name: TIME_EXPIRE_ACCESS_TOKEN
+              value: "$TIME_EXPIRE_ACCESS_TOKEN"
+            - name: TIME_EXPIRE_REFRESH_TOKEN
+              value: "$TIME_EXPIRE_REFRESH_TOKEN"
+            - name: MONGO_URL
+              value: "$_MONGO_URL"
+            - name: REDIS_URL
+              value: "$_REDIS_URL"
+            - name: AWS_S3_NAME_BUCKET
+              value: "$AWS_S3_NAME_BUCKET"
+            - name: AWS_S3_ACCESS_KEY_ID
+              value: "$AWS_S3_ACCESS_KEY_ID"
+            - name: AWS_S3_SECRET_ACCESS_KEY
+              value: "$AWS_S3_SECRET_ACCESS_KEY"
+            - name: DEFAULT_AVATAR
+              value: "$DEFAULT_AVATAR"
+            - name: NODE_ENV
+              value: production

@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: box-universe-client
+  template:
+    metadata:
+      labels:
+        app: box-universe-client
+    spec:
+      containers:
+      - name: box-universe-client
+        image: docker.io/kidp2h/box-universe-client:1.0.0
+        resources:
+          limits:
+            memory: 2048Mi
+            cpu: "2"
+          requests:
+            memory: 1024Mi
+            cpu: "1"
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always
+        env:
+        - name: NEXTAUTH_URL
+          value: "$NEXTAUTH_URL"
+        - name: NEXTAUTH_URL_INTERNAL
+          value: "$NEXTAUTH_URL_INTERNAL"
+        - name: SECRET
+          value: "$SECRET"
+        - name: NEXTAUTH_SECRET
+          value: "$NEXTAUTH_SECRET"
+        - name: FACEBOOK_CLIENT_ID
+          value: "$FACEBOOK_CLIENT_ID"
+        - name: FACEBOOK_CLIENT_SECRET
+          value: "$FACEBOOK_CLIENT_SECRET"
+        - name: GOOGLE_CLIENT_ID
+          value: "$GOOGLE_CLIENT_ID"
+        - name: GOOGLE_CLIENT_SECRET
+          value: "$GOOGLE_CLIENT_SECRET"
+        - name: GITHUB_CLIENT_ID
+          value: "$GITHUB_CLIENT_ID"
+        - name: GITHUB_CLIENT_SECRET
+          value: "$GITHUB_CLIENT_SECRET"
+        - name: DISCORD_CLIENT_ID
+          value: "$DISCORD_CLIENT_ID"
+        - name: DISCORD_CLIENT_SECRET
+          value: "$DISCORD_CLIENT_SECRET"
+        - name: NEXT_PUBLIC_SOCKET_URL
+          value: "$_SOCKET_URL"
+        - name: NEXT_PUBLIC_SERVER_URL
+          value: "$_BASE_URL_SERVER"
+        - name: NODE_ENV
+          value: production

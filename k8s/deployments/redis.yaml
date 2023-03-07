@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box-universe-redis
+  template:
+    metadata:
+      labels:
+        app: box-universe-redis
+    spec:
+      hostname: box-universe-redis
+      containers:
+        - name: box-universe-redis
+          image: docker.io/kidp2h/box-universe-redis:1.0.0
+          resources:
+            limits:
+              memory: 1024Mi
+              cpu: "1"
+            requests:
+              memory: 512Mi
+              cpu: "0.5"
+          ports:
+            - containerPort: 6379
+          imagePullPolicy: Always

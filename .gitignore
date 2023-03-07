@@ -107,3 +107,11 @@ dist
 client
 server
 *.csv
+.idea
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/box-universe.iml
+/.idea/discord.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+.env.*

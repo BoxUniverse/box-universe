@@ -1,50 +1,23 @@
 version: "3.7"
 
 services:
-  elasticsearch:
-    container_name: ${CONTAINER_NAME_ELS}
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
-    ports:
-      - ${PORT_ELS}:${PORT_ELS}
-    networks:
-      box_universe:
-        ipv4_address: ${CONTAINER_ELS_IP}
-    volumes:
-      - ../.docker/els:/usr/share/elasticsearch/data
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    environment:
-      - node.name=boxuniverse
-      - discovery.type=single-node
-      - cluster.name=boxuniverse
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-  kibana:
-    container_name: ${CONTAINER_NAME_KIBANA}
-    image: docker.elastic.co/kibana/kibana:7.5.2
-    ports:
-      - ${PORT_KIBANA}:${PORT_KIBANA}
-    networks:
-      box_universe:
-        ipv4_address: ${CONTAINER_KIBANA_IP}
-
   redis:
     container_name: ${CONTAINER_NAME_REDIS}
-    image: redis:alpine
-    command: redis-server /usr/local/etc/redis/redis.conf
+    build:
+      context: ../
+      dockerfile: ./redis/Dockerfile
     restart: always
+    command: redis-server /usr/local/etc/redis/redis.conf
     networks:
       box_universe:
         ipv4_address: ${CONTAINER_REDIS_IP}
     ports:
       - ${PORT_REDIS}:${PORT_REDIS}
-    volumes:
-      - ../redis/redis.conf:/usr/local/etc/redis/redis.conf
   nginx:
     container_name: ${CONTAINER_NAME_NGINX}
-    image: nginx:stable
+    build:
+      context: ../
+      dockerfile: ./nginx/Dockerfile
     restart: always
     environment:
       IP_SERVER: ${CONTAINER_SERVER_IP}
@@ -57,7 +30,7 @@ services:
       box_universe:
         ipv4_address: ${CONTAINER_NGINX_IP}
     volumes:
-      - ../nginx/:/etc/nginx/
+      # - ../nginx/:/etc/nginx/
       - ../nginx/logs/:/var/log/nginx/
     ports:
       - ${PORT_NGINX}:${PORT_NGINX}
@@ -67,9 +40,9 @@ services:
   mongo:
     container_name: ${CONTAINER_NAME_MONGO}
     image: mongo
-    mem_limit: "1000M"
-    mem_reservation: "50M"
     restart: always
+    env_file:
+      - ../.env
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
@@ -83,11 +56,13 @@ services:
   node-server:
     container_name: ${CONTAINER_NAME_SERVER}
     restart: always
-    mem_limit: "3000M"
-    mem_reservation: "50M"
+
     build:
       context: ../
-      dockerfile: ./server/docker/Dockerfile.dev # development
+      dockerfile: ./server/docker/Dockerfile.prod
+
+    env_file:
+      - ../.env
     environment:
       SECRET: ${SECRET}
       PORT: ${PORT_SERVER}
@@ -95,6 +70,7 @@ services:
       TIME_EXPIRE_ACCESS_TOKEN: ${TIME_EXPIRE_ACCESS_TOKEN}
       TIME_EXPIRE_REFRESH_TOKEN: ${TIME_EXPIRE_REFRESH_TOKEN}
       MONGO_URL: ${MONGO_URL}
+      REDIS_URL: ${REDIS_URL}
       AWS_S3_NAME_BUCKET: ${AWS_S3_NAME_BUCKET}
       AWS_S3_ACCESS_KEY_ID: ${AWS_S3_ACCESS_KEY_ID}
       AWS_S3_SECRET_ACCESS_KEY: ${AWS_S3_SECRET_ACCESS_KEY}
@@ -102,7 +78,7 @@ services:
     ports:
       - ${PORT_SERVER}:${PORT_SERVER}
     volumes:
-      - ../server/src:/server/src/ # development
+      - ../server/dist/:/server/dist # production
     networks:
       box_universe:
         ipv4_address: ${CONTAINER_SERVER_IP}
@@ -110,12 +86,14 @@ services:
       - mongo
   node-client:
     container_name: ${CONTAINER_NAME_CLIENT}
-    mem_limit: "3000M"
-    mem_reservation: "50M"
     restart: always
+
     build:
       context: ../
-      dockerfile: ./client/docker/Dockerfile.dev # development
+      dockerfile: ./client/docker/Dockerfile.prod # production
+
+    env_file:
+      - ../.env
     ports:
       - ${PORT_CLIENT}:${PORT_CLIENT}
     volumes:
@@ -133,6 +111,8 @@ services:
       GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET}
       DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
       DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET}
+      NEXT_PUBLIC_SOCKET_URL: ${SOCKET_URL}
+      NEXT_PUBLIC_SERVER_URL: ${BASE_URL_SERVER}
     networks:
       box_universe:
         ipv4_address: ${CONTAINER_CLIENT_IP}

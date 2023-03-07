@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: databasae-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box-universe-mongo
+  template:
+    metadata:
+      labels:
+        app: box-universe-mongo
+    spec:
+      containers:
+        - name: box-universe-mongo
+          image: mongo
+          resources:
+            limits:
+              memory: 1024Mi
+              cpu: "2"
+            requests:
+              memory: 512Mi
+              cpu: "1"
+          ports:
+            - containerPort: 27017
+          imagePullPolicy: Always
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: "$MONGO_USERNAME"
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: "$MONGO_PASSWORD"
