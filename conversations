@@ -1,0 +1,462 @@
+[{
+  "_id": {
+    "$oid": "63dd2a13be6a5d60804b9f43"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675438611225"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676038359367"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dd2a33be6a5d60804b9f5d"
+  },
+  "members": [
+    "63dbe557cd37645156ec221e",
+    "63dbe536cd37645156ec2216"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675438643012"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675438643012"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dd2f2c722dc06de05802e5"
+  },
+  "members": [
+    "63dbe58ccd37645156ec2226",
+    "63dbe536cd37645156ec2216"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675439916423"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675439916423"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63df80f7547329226a4628de"
+  },
+  "members": [
+    "63dbe58ccd37645156ec2226",
+    "63dbe5a2cd37645156ec222a"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675591927057"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675591927057"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63edd683f8efb87aa76600c8"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe58ccd37645156ec2226"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676531331496"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1678165048144"
+    }
+  },
+  "__v": 0,
+  "name": "Grkeckec"
+},{
+  "_id": {
+    "$oid": "63edd7663f34f704a0b8b4b3"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe58ccd37645156ec2226",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676531558078"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1678165055582"
+    }
+  },
+  "__v": 0,
+  "name": "sdsd"
+},{
+  "_id": {
+    "$oid": "63f309d2fe9fe25490ce86d5"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872146529"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676959526818"
+    }
+  },
+  "__v": 0,
+  "name": "Group123123"
+},{
+  "_id": {
+    "$oid": "63f30a4d3547104fbd344aea"
+  },
+  "members": [
+    "63dbe557cd37645156ec221e",
+    "63dbe536cd37645156ec2216",
+    "63dbe58ccd37645156ec2226"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872269251"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872269251"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f30a9ac59fbe2af2fcaf18"
+  },
+  "members": [
+    "63dbe557cd37645156ec221e",
+    "63dbe536cd37645156ec2216",
+    "63dbe5a2cd37645156ec222a"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872346057"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676959716038"
+    }
+  },
+  "__v": 0,
+  "name": "Groupkec"
+},{
+  "_id": {
+    "$oid": "63f30af17cb766d4ae29fb8f"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872433127"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872433127"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f30afc7cb766d4ae29fba1"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872444699"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872444699"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f30b4b3e36bcfbe6cfc7a4"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872523063"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872523063"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f30b943e36bcfbe6cfc7ae"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe58ccd37645156ec2226"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872596200"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872596200"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f30bbb53b50d7c5c8b2bc9"
+  },
+  "members": [
+    "63dbe557cd37645156ec221e",
+    "63dbe536cd37645156ec2216",
+    "63dbe58ccd37645156ec2226"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872635676"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872635676"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f30c02391cfe7fb132444f"
+  },
+  "members": [
+    "63dbe557cd37645156ec221e",
+    "63dbe536cd37645156ec2216",
+    "63dbe5a2cd37645156ec222a"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872706176"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872706176"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f30cd95be170762c40b582"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872921431"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872921431"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f30ceeeef3f5aa8bde65a9"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe58ccd37645156ec2226"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676872942975"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676872942975"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f316702ede39da31891148"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676875376800"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676875376800"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f31bbd2ede39da318911a8"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676876733870"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676876733870"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f31bcb2ede39da318911b7"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676876747774"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676876747774"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f31cb45103c4d3003e3c4e"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676876980776"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676876980776"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f31cd95103c4d3003e3c65"
+  },
+  "members": [
+    "63dbe5a2cd37645156ec222a",
+    "63dbe536cd37645156ec2216",
+    "63dbe557cd37645156ec221e"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676877017737"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676877017737"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f31d795103c4d3003e3c99"
+  },
+  "members": [
+    "63dbe557cd37645156ec221e",
+    "63dbe536cd37645156ec2216",
+    "63dbe58ccd37645156ec2226"
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676877177613"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676877177613"
+    }
+  },
+  "__v": 0
+}]

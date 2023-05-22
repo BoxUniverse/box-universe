@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 mode=("development" "production" "stop" "build" "staging" "tag")
-type=("development" "production" "staging")
 
 if [[ -z "$1" ]]; then
 	printf "Please provide mode to deploy\n"

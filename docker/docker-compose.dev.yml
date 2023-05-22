@@ -73,6 +73,7 @@ services:
       - ../nginx/logs/:/var/log/nginx/
     ports:
       - ${PORT_NGINX}:${PORT_NGINX}
+      - "443:443"
     depends_on:
       - node-server
       - node-client
@@ -86,7 +87,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
     volumes:
-      - ../.docker/mongodb:/data/db
+      - mongo_data:/data/db
     ports:
       - ${PORT_MONGO}:${PORT_MONGO}
     networks:
@@ -103,6 +104,7 @@ services:
     environment:
       SECRET: ${SECRET}
       PORT: ${PORT_SERVER}
+      PORT_SOCKET: ${PORT_SOCKET}
       SALT: ${SALT}
       TIME_EXPIRE_ACCESS_TOKEN: ${TIME_EXPIRE_ACCESS_TOKEN}
       TIME_EXPIRE_REFRESH_TOKEN: ${TIME_EXPIRE_REFRESH_TOKEN}
@@ -112,10 +114,11 @@ services:
       AWS_S3_ACCESS_KEY_ID: ${AWS_S3_ACCESS_KEY_ID}
       AWS_S3_SECRET_ACCESS_KEY: ${AWS_S3_SECRET_ACCESS_KEY}
       DEFAULT_AVATAR: ${DEFAULT_AVATAR}
+      NODE_EXTRA_CA_CERTS: /root/local/share/rootCA.pem
       NODE_ENV: development
     ports:
       - ${PORT_SERVER}:${PORT_SERVER}
-      - "8000:8000"
+#      - "2605:2605"
     volumes:
       - ../server/src:/server/src/ # development
     networks:
@@ -126,8 +129,6 @@ services:
   node-client:
     container_name: ${CONTAINER_NAME_CLIENT}
     restart: always
-    env_file:
-      - ../.env
     build:
       context: ../
       dockerfile: ./client/docker/Dockerfile.dev # development
@@ -136,10 +137,12 @@ services:
     volumes:
       - ../client/src:/client/src/ # development
     environment:
+      PORT: ${PORT_CLIENT}
       NEXTAUTH_URL: ${NEXTAUTH_URL}
       NEXTAUTH_URL_INTERNAL: ${NEXTAUTH_URL_INTERNAL}
       SECRET: ${SECRET}
-      NEXTAUTH_SECRET: ${SECRET}
+      WDS_SOCKET_PORT: 80
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
       FACEBOOK_CLIENT_ID: ${FACEBOOK_CLIENT_ID}
       FACEBOOK_CLIENT_SECRET: ${FACEBOOK_CLIENT_SECRET}
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
@@ -150,12 +153,32 @@ services:
       DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET}
       NEXT_PUBLIC_SOCKET_URL: ${SOCKET_URL}
       NEXT_PUBLIC_SERVER_URL: ${BASE_URL_SERVER}
+      NODE_EXTRA_CA_CERTS: /root/local/share/rootCA.pem
+#      NODE_TLS_REJECT_UNAUTHORIZED: 0
       NODE_ENV: development
     networks:
       box_universe:
         ipv4_address: ${CONTAINER_CLIENT_IP}
     depends_on:
       - node-server
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    restart: always
+    ports:
+      - "8082:8081"
+    environment:
+      ME_CONFIG_OPTIONS_EDITORTHEME: dracula
+      ME_CONFIG_MONGODB_SERVER: ${CONTAINER_MONGO_IP}
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+    depends_on:
+      - mongo
+    networks:
+      - box_universe
+
+volumes:
+  mongo_data:
 networks:
   box_universe:
     driver: bridge

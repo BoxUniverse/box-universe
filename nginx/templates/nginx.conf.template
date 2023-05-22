@@ -10,18 +10,44 @@ http {
 
   upstream client {
     server ${IP_CLIENT}:${PORT_CLIENT};
+
+  }
+
+  upstream server {
+    server ${IP_SERVER}:${PORT_SERVER};
+  }
+
+
+  server {
+    server_name boxuniverse.dev;
+
+    ssl_certificate /etc/nginx/ssl/client.pem;
+    ssl_certificate_key /etc/nginx/ssl/client-key.pem;
+    listen 80;
+    listen 443 ssl;
+
+    location / {
+        proxy_pass https://client ;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
   }
 
   server {
-    server_name localhost;
-    listen ${PORT};
-    # listen ${PORT} ssl;
-    #
-    # ssl_certificate /etc/nginx/ssl/boxuniverse_cert.pem;
-    # ssl_certificate_key /etc/nginx/ssl/boxuniverse.pem;
+    server_name server.boxuniverse.dev;
 
-    location / {
-        proxy_pass http://client ;
+    ssl_certificate /etc/nginx/ssl/server.pem;
+    ssl_certificate_key /etc/nginx/ssl/server-key.pem;
+
+    listen 80;
+    listen 443 ssl;
+
+
+    location /graphql {
+        proxy_pass https://server;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';

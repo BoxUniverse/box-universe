@@ -1,0 +1,125 @@
+[{
+  "_id": {
+    "$oid": "63dbe536cd37645156ec2216"
+  },
+  "username": "kidp2h",
+  "password": "$2b$10$1fRxo.6R/LQPwwI1YBVA1e8M7fATDXiSbx9bQ3Wysg4Opy6KHs.wa",
+  "email": "kidp2h@gmail.com",
+  "providers": [
+    {
+      "type": "local"
+    },
+    {
+      "type": "google",
+      "id": "102912913194859702059"
+    }
+  ],
+  "deletedAt": null,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355446404"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675392830717"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dbe557cd37645156ec221e"
+  },
+  "username": "thjnhsoajca",
+  "password": "$2b$10$nKhaEWarYfyxfFmOXO2SZ.b8LCH3NrSt4PZq0jZYjZQf.pUS2J7iu",
+  "email": "thjnhsoajca@gmail.com",
+  "providers": [
+    {
+      "type": "local"
+    }
+  ],
+  "deletedAt": null,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355479151"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675355479151"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dbe572cd37645156ec2222"
+  },
+  "username": "f7kingeagles",
+  "password": "$2b$10$owrwgQoCh3P1aKqS4d7fu.hlXeTpGPeop2vOk/wwGQD0enC3qjora",
+  "email": "f7kingeagles@gmail.com",
+  "providers": [
+    {
+      "type": "local"
+    }
+  ],
+  "deletedAt": null,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355506941"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675355506941"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dbe58ccd37645156ec2226"
+  },
+  "username": "thjnhsoajca1",
+  "password": "$2b$10$o4UrCN74lYej5daech6ODuZlrhHOq5CwWEvx7A/GiM3JZ1tCc818S",
+  "email": "thjnhsoajca1@gmail.com",
+  "providers": [
+    {
+      "type": "local"
+    }
+  ],
+  "deletedAt": null,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355532871"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675355532871"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dbe5a2cd37645156ec222a"
+  },
+  "username": "thjnhsoajca2",
+  "password": "$2b$10$Ge.NY6cHKSLHish4FELwdebNNNcxrKqWpLLKXf2D.BZqU418Ff4iu",
+  "email": "thjnhsoajca2@gmail.com",
+  "providers": [
+    {
+      "type": "local"
+    }
+  ],
+  "deletedAt": null,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355554522"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675355554522"
+    }
+  },
+  "__v": 0
+}]

@@ -105,6 +105,8 @@ dist
 .docker
 .env
 client
+nginx/ssl/*.crt
+nginx/ssl/*.key
 server
 *.csv
 .idea

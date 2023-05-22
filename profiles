@@ -1,0 +1,155 @@
+[{
+  "_id": {
+    "$oid": "63dbe536cd37645156ec2218"
+  },
+  "id": "63dbe536cd37645156ec2216",
+  "name": "kidp2h1675355446471",
+  "email": "kidp2h@gmail.com",
+  "avatar": "https://boxuniverse.s3.ap-southeast-1.amazonaws.com/default.jpg",
+  "provider": "credentials",
+  "friends": [
+    {
+      "friendId": "63dbe5a2cd37645156ec222a"
+    },
+    {
+      "friendId": "63dbe557cd37645156ec221e"
+    },
+    {
+      "friendId": "63dbe58ccd37645156ec2226"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355446471"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675439916426"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dbe557cd37645156ec2220"
+  },
+  "id": "63dbe557cd37645156ec221e",
+  "name": "thjnhsoajca1675355479208",
+  "email": "thjnhsoajca@gmail.com",
+  "avatar": "https://boxuniverse.s3.ap-southeast-1.amazonaws.com/default.jpg",
+  "provider": "credentials",
+  "friends": [
+    {
+      "friendId": "63dbe536cd37645156ec2216"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355479208"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675438643014"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dbe572cd37645156ec2224"
+  },
+  "id": "63dbe572cd37645156ec2222",
+  "name": "f7kingeagles1675355506994",
+  "email": "f7kingeagles@gmail.com",
+  "avatar": "https://boxuniverse.s3.ap-southeast-1.amazonaws.com/default.jpg",
+  "provider": "credentials",
+  "friends": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355506994"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675355506994"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dbe58ccd37645156ec2228"
+  },
+  "id": "63dbe58ccd37645156ec2226",
+  "name": "thjnhsoajca11675355532932",
+  "email": "thjnhsoajca1@gmail.com",
+  "avatar": "https://boxuniverse.s3.ap-southeast-1.amazonaws.com/default.jpg",
+  "provider": "credentials",
+  "friends": [
+    {
+      "friendId": "63dbe536cd37645156ec2216"
+    },
+    {
+      "friendId": "63dbe5a2cd37645156ec222a"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355532932"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675591927073"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dbe5a2cd37645156ec222c"
+  },
+  "id": "63dbe5a2cd37645156ec222a",
+  "name": "thjnhsoajca21675355554575",
+  "email": "thjnhsoajca2@gmail.com",
+  "avatar": "https://boxuniverse.s3.ap-southeast-1.amazonaws.com/default.jpg",
+  "provider": "credentials",
+  "friends": [
+    {
+      "friendId": "63dbe536cd37645156ec2216"
+    },
+    {
+      "friendId": "63dbe58ccd37645156ec2226"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675355554575"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675688332594"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63dc773e7351f09a57a81710"
+  },
+  "id": "102912913194859702059",
+  "name": "Phúc Thịnh Nguyễn (kidev)",
+  "email": "kidp2h@gmail.com",
+  "avatar": "https://boxuniverse.s3.ap-southeast-1.amazonaws.com/default.jpg",
+  "provider": "google",
+  "friends": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1675392830729"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675392830729"
+    }
+  },
+  "__v": 0
+}]
